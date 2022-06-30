@@ -35,7 +35,7 @@
       </el-table-column>
     </el-table>
 
-    <el-dialog v-model="isShow" title="Shipping address">
+    <el-dialog v-model="isShow" title="编辑用户">
       <el-form :model="activeObj">
         <el-form-item label="姓名" label-width="50px">
           <el-input v-model="activeObj.userName" autocomplete="off" />
@@ -48,8 +48,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取消</el-button>
-          <el-button type="primary" @click="updateUser()">更改</el-button>
+          <el-button @click="cancleEdit">取消</el-button>
+          <el-button type="primary" @click="updateUser">更改</el-button>
         </span>
       </template>
     </el-dialog>
@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, reactive, toRefs, watch } from "vue"
+import { nextTick, onBeforeMount, onBeforeUpdate, onMounted, reactive, toRefs, watch } from "vue"
 import { userList, roleList } from "../request/api"
 import { InitData, ListInt } from "../type/user"
 
@@ -93,9 +93,21 @@ export default ({
       data.isShow = true
       data.activeObj = row
     }
-    
+
+    const cancleEdit = () => {
+      data.isCancle = true
+      data.isShow = false
+    }
+
     const updateUser = () => {
-      console.log(data.activeObj)
+      // console.log(data.
+      // let obj: any = data.list.find(item => item.id === data.activeObj.id)
+      // obj.userName = data.activeObj.userName
+      // obj.roleID = data.activeObj.roleID
+      // // console.log(obj)
+      // data.isShow = false
+      mapRoleID()
+      data.isShow = false
 
     }
 
@@ -103,18 +115,24 @@ export default ({
       userList().then(
         res => {
           data.list = res.data
-          for (let i in data.list) {
-            data.list[i].roleName = data.list[i].roleID.sort().map((ele) => {
-              if (ele == 1) {
-                return "管理员"
-              }
-              if (ele == 2) {
-                return "普通用户"
-              }
-            })
-          }
         }
       )
+    }
+
+    const mapRoleID = () => {
+    if (!data.isCancle){
+        for (let i in data.list) {
+          data.list[i].roleName = data.list[i].roleID.sort().map((ele) => {
+            if (ele == 1) {
+              return "管理员"
+            }
+            if (ele == 2) {
+              return "普通用户"
+            }
+          })
+        }
+      }
+
     }
 
     const getRoleList = () => {
@@ -125,11 +143,26 @@ export default ({
         }
       )
     }
-    onMounted(() => {
+
+    onBeforeMount(() => {
       getUserList()
       getRoleList()
     })
 
+
+    onBeforeUpdate(() => {
+      mapRoleID()
+    })
+
+    // watch 编辑对象的roleID
+    // watch(() => data.activeObj.roleID,
+    //   () => {
+    //     mapRoleID()
+    //
+    //   }, 
+    // )
+
+    // 输入框清空时重新getUserList
     watch([() => data.selectedData.userName, () => data.selectedData.roleID],
 
       () => {
@@ -140,7 +173,7 @@ export default ({
     )
 
     return {
-      ...toRefs(data),  onSubmit, editUser, updateUser
+      ...toRefs(data), onSubmit, editUser, updateUser, cancleEdit
     }
 
 

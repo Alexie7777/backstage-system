@@ -38,6 +38,8 @@ export default {
   name: "GoodsView",
   setup() {
     const data = reactive(new InitData())
+
+    // 获取分页数据
     const dataList = reactive({
       computedList: computed(() => {
         return data.list.slice((data.selectData.page - 1) * data.selectData.pageSize, data.selectData.page * data.selectData.pageSize)
@@ -56,12 +58,12 @@ export default {
       let arr: ListInt[] = []
       if (data.selectData.title || data.selectData.introduce) {
         if (data.selectData.title) {
-          arr = data.list.filter((value:any) => {
+          arr = data.list.filter((value: any) => {
             return value.title.includes(data.selectData.title.trim())
           })
         }
         if (data.selectData.introduce) {
-          arr = data.list.filter((value:any) => {
+          arr = data.list.filter((value: any) => {
             return value.introduce.includes(data.selectData.introduce.trim())
           })
         }
@@ -87,7 +89,7 @@ export default {
       }
     })
 
-    onMounted( () => {
+    onMounted(() => {
       getGoods()
     })
 

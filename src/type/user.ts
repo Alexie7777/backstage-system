@@ -31,6 +31,7 @@ export class InitData {
   list: ListInt[] = [];
   roleList: RoleListInt[] = [];
   isShow = false;
+  isCancle = false;
   activeObj: ActiveObjInt = {
     id: 0,
     userName: "",
