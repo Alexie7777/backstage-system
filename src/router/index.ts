@@ -24,6 +24,15 @@ const routes = [
         },
         component: () => import("/@/views/UserView.vue"),
       },
+      {
+        path: "role",
+        name: "roleView",
+        meta: {
+          isShow: true,
+          title: "角色列表",
+        },
+        component: () => import("/@/views/RoleView.vue"),
+      },
     ],
   },
   {
