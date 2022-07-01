@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { nextTick, onBeforeMount, onBeforeUpdate, onMounted, reactive, toRefs, watch } from "vue"
+import {  onBeforeMount, onBeforeUpdate,  reactive, toRefs, watch } from "vue"
 import { userList, roleList } from "../request/api"
 import { InitData, ListInt } from "../type/user"
 
@@ -126,7 +126,7 @@ export default ({
             if (ele == 1) {
               return "管理员"
             }
-            if (ele == 2) {
+            else {
               return "普通用户"
             }
           })
@@ -137,7 +137,7 @@ export default ({
 
     const getRoleList = () => {
       roleList().then(
-        res => {
+        ( res: any )=> {
           data.roleList = res.data
           // console.log(res.data)
         }

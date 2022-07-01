@@ -49,7 +49,7 @@ export default {
       })
         .then(({ value }) => {
           if (value) {
-            data.list.push({ roleName: value, roleID: data.list.length + 1, authoriry: [] })
+            data.list.push({ roleName: value, roleID: data.list.length + 1, authority: [] })
           }
           ElMessage({
             type: 'success',
