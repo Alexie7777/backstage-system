@@ -16,7 +16,6 @@
 
       <el-table-column prop="roleName" label="角色" />
 
-      <el-table-column prop="authoriry" label="权限" />
 
       <el-table-column label="操作">
         <template #default="scope">
