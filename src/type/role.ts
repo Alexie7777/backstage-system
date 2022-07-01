@@ -1,7 +1,7 @@
 export interface ListInt {
   roleName: string;
-  roleID: string;
-  authoriry: number[];
+  roleID: number;
+  authority: number[];
 }
 
 export class InitData {

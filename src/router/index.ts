@@ -33,6 +33,15 @@ const routes = [
         },
         component: () => import("/@/views/RoleView.vue"),
       },
+      {
+        path: "authority",
+        name: "AuthorityView",
+        meta: {
+          isShow: false,
+          title: "权限列表",
+        },
+        component: () => import("/@/views/AuthorityView.vue"),
+      },
     ],
   },
   {
