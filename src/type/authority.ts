@@ -1,3 +1,10 @@
+export interface ListInt {
+  name: string;
+  roleId: number;
+  roleList?: ListInt[];
+  viewRole?: string;
+}
+
 export class InitData {
   id: number;
   authority: number[];
@@ -5,4 +12,6 @@ export class InitData {
     this.id = id;
     this.authority = authority;
   }
+  list: ListInt[] = [];
+  treeRef: any;
 }

@@ -17,6 +17,8 @@ function makeRequest(url: string, method: string = "get") {
 const goods = makeRequest("/goods");
 const roleList = makeRequest("/getRole");
 const userList = makeRequest("/getUser");
+const authList = makeRequest("/authority");
+
 function login(data: Ilogin) {
   return service({
     url: "/login",
@@ -35,4 +37,4 @@ function login(data: Ilogin) {
 //   });
 // }
 
-export { goods, login, roleList, userList };
+export { authList, goods, login, roleList, userList };

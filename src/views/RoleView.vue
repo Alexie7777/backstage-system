@@ -72,7 +72,7 @@ export default {
         name: "AuthorityView",
         params: {
           id: row.roleID,
-          authoriry: row.authority
+          authority: row.authority
         }
       })
     }
@@ -80,7 +80,7 @@ export default {
     onBeforeMount(() => {
       roleList().then(res => {
         data.list = res.data
-        console.log(data.list)
+        // console.log(data.list)
       })
     })
 
