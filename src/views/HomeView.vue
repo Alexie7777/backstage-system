@@ -4,7 +4,7 @@
       <el-header>
         <el-row :gutter="20">
           <el-col :span="4">
-            <img class="logo" src="/@/assets/logo.png" alt="logo">
+            <img class="logo" src="../assets/logo.png" alt="logo">
           </el-col>
           <el-col :span="16">
             <h2>后台管理系统</h2>

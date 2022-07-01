@@ -4,7 +4,7 @@ const routes = [
   {
     path: "/",
     name: "HomeView",
-    component: () => import("/@/views/HomeView.vue"),
+    component: () => import("../views/HomeView.vue"),
     children: [
       {
         path: "goods",
@@ -13,7 +13,7 @@ const routes = [
           isShow: true,
           title: "商品列表",
         },
-        component: () => import("/@/views/GoodsView.vue"),
+        component: () => import("../views/GoodsView.vue"),
       },
       {
         path: "user",
@@ -22,7 +22,7 @@ const routes = [
           isShow: true,
           title: "用户列表",
         },
-        component: () => import("/@/views/UserView.vue"),
+        component: () => import("../views/UserView.vue"),
       },
       {
         path: "role",
@@ -31,7 +31,7 @@ const routes = [
           isShow: true,
           title: "角色列表",
         },
-        component: () => import("/@/views/RoleView.vue"),
+        component: () => import("../views/RoleView.vue"),
       },
       {
         path: "authority",
@@ -40,14 +40,14 @@ const routes = [
           isShow: false,
           title: "权限列表",
         },
-        component: () => import("/@/views/AuthorityView.vue"),
+        component: () => import("../views/AuthorityView.vue"),
       },
     ],
   },
   {
     path: "/login",
     name: "LoginView",
-    component: () => import("/@/views/LoginView.vue"),
+    component: () => import("../views/LoginView.vue"),
   },
 ];
 

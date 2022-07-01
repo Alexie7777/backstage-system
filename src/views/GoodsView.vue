@@ -32,7 +32,7 @@
 <script lang="ts">
 import { computed, onMounted, reactive, toRefs, watch } from "vue"
 import { goods } from "../request/api"
-import { InitData, ListInt } from "/@/type/goods"
+import { InitData, ListInt } from "../type/goods"
 
 export default {
   name: "GoodsView",

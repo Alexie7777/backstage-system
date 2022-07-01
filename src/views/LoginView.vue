@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { reactive, ref, toRefs } from 'vue'
-import { LoginData } from "/@/type/login"
+import { LoginData } from "../type/login"
 import type { FormInstance } from "element-plus"
 import { login } from "../request/api"
 import { useRouter } from 'vue-router'
@@ -73,7 +73,7 @@ export default {
 .login-box {
   width: 100%;
   height: 100%;
-  background: url("/@/assets/bg.jpg");
+  background: url("../assets/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
