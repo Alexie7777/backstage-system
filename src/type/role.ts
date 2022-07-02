@@ -6,4 +6,5 @@ export interface ListInt {
 
 export class InitData {
   list: ListInt[] = [];
+  isLoading: boolean = true;
 }

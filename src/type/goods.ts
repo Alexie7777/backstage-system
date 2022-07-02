@@ -22,4 +22,5 @@ export class InitData {
     count: 0,
   };
   list: ListInt[] = [];
+  isLoading: boolean = true;
 }

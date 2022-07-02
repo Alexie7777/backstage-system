@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="select-box">
-      <el-form :inline="true" :model="selectedData" class="demo-form-inline">
+      <el-form  :inline="true" :model="selectedData" class="demo-form-inline">
         <el-form-item @keyup.enter="onSubmit" label="姓名">
           <el-input v-model="selectedData.userName" placeholder="请输入关键字" />
         </el-form-item>
@@ -20,7 +20,7 @@
       </el-form>
     </div>
 
-    <el-table :data="list" stripe style="width: 100%">
+    <el-table v-loading="isLoading" :data="list" stripe style="width: 100%">
       <el-table-column prop="id" label="ID" width="180" />
       <el-table-column prop="userName" label="姓名" width="180" />
       <el-table-column prop="roleName" label="角色">
@@ -115,6 +115,7 @@ export default ({
       userList().then(
         res => {
           data.list = res.data
+          data.isLoading = false
         }
       )
     }

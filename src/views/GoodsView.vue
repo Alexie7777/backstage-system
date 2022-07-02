@@ -17,7 +17,7 @@
       </el-form>
     </div>
 
-    <el-table :data="computedList" stripe style="width: 100%">
+    <el-table v-loading="isLoading" :data="computedList" stripe style="width: 100%">
       <el-table-column prop="id" label="ID" width="180" />
       <el-table-column prop="title" label="标题" width="180" />
       <el-table-column prop="introduce" label="详情" />
@@ -79,6 +79,7 @@ export default {
         res => {
           data.list = res.data
           data.selectData.count = res.data.length
+          data.isLoading = false
         }
       )
     }

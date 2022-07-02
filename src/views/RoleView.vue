@@ -10,7 +10,7 @@
       </el-form>
     </div>
 
-    <el-table :data="list" stripe style="width: 100%">
+    <el-table v-loading="isLoading" :data="list" stripe style="width: 100%">
 
       <el-table-column prop="roleID" label="ID" width="180" />
 
@@ -63,10 +63,6 @@ export default {
         })
     }
 
-    // const editAuth = (row) => {
-    //   console.log(row)
-    // }
-
     const editAuth = (row: ListInt) => {
       router.push({
         name: "AuthorityView",
@@ -80,7 +76,7 @@ export default {
     onBeforeMount(() => {
       roleList().then(res => {
         data.list = res.data
-        // console.log(data.list)
+        data.isLoading = false
       })
     })
 
