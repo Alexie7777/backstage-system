@@ -8,7 +8,7 @@
       </el-form-item>
 
       <el-form-item label="密码: " prop="password">
-        <el-input v-model="ruleForm.password" type="password" autocomplete="off" />
+        <el-input v-model="ruleForm.password" type="password" @keyup.enter="submitForm(ruleFormRef)" autocomplete="off" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(ruleFormRef)">登录</el-button>

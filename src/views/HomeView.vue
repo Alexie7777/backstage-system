@@ -9,10 +9,8 @@
           <el-col :span="16">
             <h2>后台管理系统</h2>
           </el-col>
-          <el-col :span="4">
-            <span class="quit-login">
-              退出登录
-            </span>
+          <el-col :span="4" class="col-btn">
+            <el-button link type="primary" @click="logout">退出登录</el-button>
           </el-col>
         </el-row>
       </el-header>
@@ -46,8 +44,13 @@ export default {
     const router = useRouter()
     const route = useRoute()
     const showList = router.getRoutes().filter(v => v.meta.isShow)
+
+    const logout = () => {
+      localStorage.removeItem('token')
+      router.push("/login")
+    }
     return {
-      showList, active: route.path
+      showList, active: route.path, logout
     }
   }
 };
@@ -69,6 +72,11 @@ export default {
     height: 80px;
     line-height: 80px;
   }
+}
+
+.col-btn {
+  height: 80px;
+  line-height: 80px;
 }
 
 .el-aside {
