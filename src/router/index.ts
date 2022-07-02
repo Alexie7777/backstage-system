@@ -5,6 +5,7 @@ const routes = [
     path: "/",
     name: "HomeView",
     component: () => import("../views/HomeView.vue"),
+    redirect: "goods",
     children: [
       {
         path: "goods",
@@ -51,7 +52,18 @@ const routes = [
   },
 ];
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, _from, next) => {
+  const token: string | null = localStorage.getItem("token");
+  if (!token && to.path !== "/login") {
+    next("/login");
+  } else {
+    next();
+  }
+});
+
+export default router;
