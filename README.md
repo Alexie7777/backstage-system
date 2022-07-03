@@ -5,3 +5,13 @@ Build with Axios ElementUI TypeScript Vue3 Vue-Router Vite
 
 ## Account for Testing
 admin/admin
+
+## 📖 Usage
+Install deps:
+```bash
+pnpm/npm install
+```
+Host on DevServer(wit\\\\\\port 3000): 
+```bash
+pnpm/npm run dev
+```
